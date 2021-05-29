@@ -8,3 +8,6 @@ static*
 
 # Virtual Environment Directory
 env/
+
+# Secrets File
+mysite/secrets.py
