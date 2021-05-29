@@ -1,0 +1,10 @@
+db.*
+
+# database files
+photos/migrations
+
+# Static Files
+static*
+
+# Virtual Environment Directory
+env/
