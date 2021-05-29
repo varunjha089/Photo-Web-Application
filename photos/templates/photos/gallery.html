@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <style>
+        .image-thumbail {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .list-group-item a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+
+    <!-- Font Awesome icons -->
+    <script src="https://kit.fontawesome.com/fdfd5d638b.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="m-5">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+
+                <div class="card my-2">
+                    <a href="#" class="btn btn-success btn-block btn-sm m-1" disabled><i class="fas fa-rupee-sign"></i>  योगदान दे</a>
+                    <!-- <a href="{% url 'add' %}" class="btn btn-success btn-block btn-sm m-1" disabled>योगदान दे</a> -->
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <b>श्रेणियाँ</b>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="{% url 'gallery' %}">समस्त</a>
+                        </li>
+                        {% for category in categories %}
+                        <li class=" list-group-item">
+                            <a href="{% url 'gallery' %}?category={{category.name}}">
+                                {{category.name}}
+                            </a>
+                        </li>
+                        {% endfor %}
+
+
+                        <a href="{% url 'add' %}" class="btn btn-primary btn-block btn-sm m-1"><i class="fas fa-camera-retro"></i>  Add Photo</a>
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+
+                    {% for photo in photos %}
+                    <div class="col-md-4">
+                        <div class="card my-2">
+                            <img class="image-thumbail" src="{{photo.image.url}}" alt="Card image cap">
+
+                            <div class="card-body">
+                                <!-- using cycle -->
+
+                                
+                                
+                                <small><b>श्रेणि:</b><br/>
+
+                                    <button class="btn btn-sm {% cycle 'btn-primary' 'btn-secondary' 'btn-success' 'btn-danger' 'btn-warning' 'btn-info' %}">
+                                        {{photo.category.name}}
+                                    </button>
+                                    
+                                    </small>
+                                
+                            </div>
+                            <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">
+                                इस्को दावा डाला तो लाइफ जिंगाला</a>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <h3>No photos...</h3>
+                    {% endfor %}
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
