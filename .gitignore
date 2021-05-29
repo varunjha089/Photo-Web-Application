@@ -4,7 +4,7 @@ db.*
 photos/migrations
 
 # Static Files
-static*
+static
 
 # Virtual Environment Directory
 env/
