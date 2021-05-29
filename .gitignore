@@ -10,4 +10,8 @@ static*
 env/
 
 # Secrets File
-mysite/secrets.py
+mysite/secrets_keys.py
+
+# Excluding Cache files
+mysite/__pycache__
+photos/__pycache__
