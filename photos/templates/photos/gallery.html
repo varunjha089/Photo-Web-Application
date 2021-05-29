@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,10 +35,7 @@
         <div class="row">
             <div class="col-md-3">
 
-                <div class="card my-2">
-                    <a href="#" class="btn btn-success btn-block btn-sm m-1" disabled><i class="fas fa-rupee-sign"></i>  योगदान दे</a>
-                    <!-- <a href="{% url 'add' %}" class="btn btn-success btn-block btn-sm m-1" disabled>योगदान दे</a> -->
-                </div>
+                
                 <div class="card">
                     <div class="card-header">
                         <b>श्रेणियाँ</b>
@@ -54,9 +52,48 @@
                         </li>
                         {% endfor %}
 
+                        <br/>
+                        <a href="{% url 'add' %}" class="btn btn-primary btn-block btn-sm m-1">
+                            <i class="fas fa-camera-retro"></i>  Add Photo
+                        </a>
+                        <br/>
+                        <div class="card my-2">
+                            <a href="#" class="btn btn-success btn-block btn-sm m-1" disabled><i class="fas fa-rupee-sign"></i>  योगदान दे</a>
+                        </div>
 
-                        <a href="{% url 'add' %}" class="btn btn-primary btn-block btn-sm m-1"><i class="fas fa-camera-retro"></i>  Add Photo</a>
+                        <!-- Self payment -->
+                        <li class=" list-group-item">
+                            <p><b>Four Rupees</b></p>
+                            <p>This will help me in runnin server for 1 Hour.</p>
+                            <!-- <img src="/static/rokada/04_qr.jpg" alt="Four Rupees" class="img-thumbnail"/> -->
+                            <img src="{% static 'rokada/04_qr.jpg' %}" alt="Four Rupees" class="img-thumbnail" />
+                        </li>
 
+                        <br>
+                        
+                        <li class=" list-group-item">
+                            <p><b>Hundred Rupees</b></p>
+                            <p>This will help me in runnin server for 1 Day.</p>
+                            <!-- <img src="/static/rokada/04_qr.jpg" alt="Four Rupees" class="img-thumbnail"/> -->
+                            <img src="{% static 'rokada/100_qr.jpg' %}" alt="Four Rupees" class="img-thumbnail" />
+                        </li>
+
+                        <br>
+
+                        <li class=" list-group-item">
+                            <p><b>Four Rupees</b></p>
+                            <p>This will help me in runnin server for 1 Month.</p>
+                            <!-- <img src="/static/rokada/04_qr.jpg" alt="Four Rupees" class="img-thumbnail"/> -->
+                            <img src="{% static 'rokada/3000_qr.jpg' %}" alt="Four Rupees" class="img-thumbnail" />
+                        </li>
+
+                        <br>
+
+                        <p class="text-center text-danger">
+                            <span>महत्वपूर्ण सुचना:-</span>
+                            <b>गोरलागाई पक्ष मैं इधर जमा न करें</b>
+                        </p>
+                        
                     </ul>
                 </div>
 
